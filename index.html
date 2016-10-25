@@ -50,8 +50,8 @@ body {
 background-image:url("assets/images/background2.jpg");
 
 background-repeat: no-repeat;
-background-position: fixed center;
-background-size: 100% 300%;
+    background-attachment: fixed;
+background-size: 100% 100%;
 	
 }
 
@@ -66,71 +66,84 @@ background-size: 100% 300%;
 	margin-bottom: 20px;
 }
 
+#inst {
+	margin-left: 200px;
+}
+
+
 </style>
 
 <body>
 
-<div class="row">
-	
-<div class="col-md-3 pull-right panel panel-default">
-The Greatest game ever made RPG
-</div>
-
-</div>
-
-<div class="row">
-
-<div class="col-md-3" id="inst">
-	
-<p>Select Your Characters</p>
-
-</div>
-	
-
-</div>
-
-
-<div class="row">
-
-<div id="buttons" class="col-md-6 pull-left">
-
-
-</div>
-
-
-
-</div>
+<div class="container">
 
 <div class="row">
 	
-<div id="battle" class="col-md-8"></div>
+	<div class="col-md-3 pull-right panel panel-default">
+
+		The Greatest game ever made RPG
+
+	</div>
 
 </div>
 
 <div class="row">
+
+	<div class="col-md-2 panel panel-default p" id="inst">
+
+		<h4 class="text-center">Instructions</h4>
+		<hr>	
+		<p class="text-center">Select your character from any of the four characters</p>
+
+	</div>
+	
+
+</div>
+
+
+<div class="row">
+
+	<div id="buttons" class="col-md-6 pull-left">
+
+</div>
+
+
+
+</div>
+
+<div class="row">
+	
+	<div id="battle" class="col-md-8"></div>
+
+</div>
+
+<div class="row">
+
 	<div class="col-md-8 def">
 		<button class="btn btn-primary defend_button">Defend</button>
 	</div>
-</div>
-
-<div class="row">
-	
-<div id="defend"></div>
 
 </div>
 
 <div class="row">
 	
-<div id="reset">
-	<div class="col-md-3 reset">
-		<button class="btn btn-primary reset_button">Reset</button>
+	<div id="defend"></div>
+
+</div>
+
+<div class="row">
+		
+	<div id="reset">
+
+		<div class="col-md-3 reset">
+			<button class="btn btn-primary reset_button">Reset</button>
+		</div>
+
 	</div>
 
 </div>
 
 </div>
-
-
 
 </body>
 </html>

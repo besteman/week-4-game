@@ -115,7 +115,7 @@ $(document).ready(function() {
         }
 
         $("#buttons").html($(this).data('name','health','image'));
-        $("#inst").html("<p>Choose Your Battle</p>");
+        $("#inst").html("<h4 class = 'text-center'>Instructions</h4><hr><p class = 'text-center'>Choose from the red enemies who you want to fight</p>");
 
         defender();
 
@@ -160,6 +160,9 @@ $(document).ready(function() {
                 $(this).remove();
             }
           }
+
+        $("#inst").html("<h4 class = 'text-center'>Instructions</h4><hr><p class = 'text-center'>Click defend to fight</p>");
+
         }
       });
   }
@@ -253,17 +256,18 @@ $(document).ready(function() {
    
         if($(".defender").data("health") < 0){
           $(".defender").remove();
-          $("#inst").html("<p>Choose Your Battle</p>");
+        $("#inst").html("<h4 class = 'text-center'>Instructions</h4><hr><p class = 'text-center'>One down, choose another</p>");
+
 
         }
-         console.log(count);
+         
         if($(".hero_button").data("health") < 0){
           $(".hero_button").remove();
-          $("#inst").html("<p>You Lost</p>");
+          $("#inst").html("<p class = 'text-center'>You Lost</p>");
         }
 
         if ($("#battle").is(":empty") != false) {
-          $("#inst").html("<p>You Won</p>");
+          $("#inst").html("<p class = 'text-center'>You Won</p>");
         }
 
      } 

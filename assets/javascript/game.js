@@ -69,7 +69,7 @@ $(document).ready(function() {
                 //var attack = ;
                 if (i != hero_select){
                     var enemies = $("<button>");
-                    enemies.addClass("hero enemy");
+                    enemies.addClass("hero enemy btn-danger");
                     enemies.attr({
                         "data-name": young_hero[i],
                         "data-health": health[i],
@@ -85,6 +85,7 @@ $(document).ready(function() {
                 }
             }
             $("#buttons").html($(this).data('name','health','image'));
+            $("#inst").html("<p>Choose Your Battle</p>");
             defender();
         });
     }
@@ -94,13 +95,16 @@ $(document).ready(function() {
 
           if ($("#defend").is(":empty")) {
 
+            $("#inst").html("<p>Attack</p>");
+
+
             var enemy = $(this);
             enemy_select = enemy.data("index"); 
 
             for (var i = 0; i < young_hero.length; i++) {
                 if (i == enemy_select) {
                     var defender = $("<button>");
-                    defender.addClass("hero defender");
+                    defender.addClass("hero defender ");
                     defender.attr({
                         "data-name": young_hero[i],
                         "data-health": health[i],
@@ -217,11 +221,16 @@ $(document).ready(function() {
      
           if($(".defender").data("health") < 0){
             $(".defender").remove();
-            count--;
+            $("#inst").html("<p>Choose Your Battle</p>");
+
           }
            console.log(count);
           if($(".hero_button").data("health") < 0){
             $(".hero_button").remove();
+          }
+
+          if ($("#battle").is(":empty") != false) {
+            $("#inst").html("<p>You Won</p>");
           }
 
        } 

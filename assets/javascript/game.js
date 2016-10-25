@@ -94,6 +94,7 @@ $(document).ready(function() {
         for (var i = 0; i < young_hero.length; i++) {
            
             if (i != hero_select){
+
                 var enemies = $("<button>");
                 enemies.addClass("hero enemy btn-danger");
                 enemies.attr({
@@ -231,9 +232,6 @@ $(document).ready(function() {
       
       $("#defend").html(update_defender.data('name','health','image'));
 
-
-      //----------------------------------------------------------------
-
         var update_hero = $("<button>");
 
         update_hero.addClass("hero hero_button");
@@ -245,7 +243,7 @@ $(document).ready(function() {
             "data-counter": new_hero_counter,
             "data-index": hero_select
         });
-        
+
         update_hero.text(young_hero[hero_select]);
         update_hero.append(hero_image[hero_select]);
         update_hero.append(new_health_hero);
@@ -270,6 +268,15 @@ $(document).ready(function() {
 
      } 
 });
+
+  // PIV: None
+  // AV: Complete reset
+  // Purpose: To allow the user to choose to start over
+  $(".reset_button").on("click",function(){
+
+    location.reload();
+
+  });
 
     ready_board();
     char();

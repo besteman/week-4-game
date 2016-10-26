@@ -327,11 +327,11 @@ $(document).ready(function() {
          
         if($(".hero_button").data("health") < 0){
           $(".hero_button").remove();
-          $("#inst").html("<p class = 'text-center'>You Lost</p>");
+          $("#inst").html("<p class = 'text-center'>You Lost</p><p>If you want to play again hit Reset</p>");
         }
 
         if ($("#battle").is(":empty") != false) {
-          $("#inst").html("<p class = 'text-center'>You Won</p>");
+          $("#inst").html("<p class = 'text-center'>You Won</p><p>If you want to play again hit Reset</p>");
         }
 
      } 

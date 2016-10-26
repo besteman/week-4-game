@@ -48,6 +48,18 @@ $(document).ready(function() {
   var choices_ap = [];
   var choices_cp = [];
 
+  var choices_data = ["He is usually depicted as a courageous young boy or teenager in green clothing who leaves his home and any relatives to pursue his destiny: fighting the evil forces threatening the land. Over the course of his adventure, Link defeats legions of evil monsters, explores vasts lands, helps anyone he meets struggling, navigates deadly dungeons, and collects mythical items while pursuing his quest for justice and peace. In the end, he gains the power needed to thwart his main enemy and becomes a legendary hero. He is considered an iconic character in video gaming and the very symbol of the Zelda franchise, and remains one of the most popular video game protagonists.",
+   "Bongo Bongo is a gargantuan, invisible, and evil spirit, appearing as a one-eyed monster with disembodied hands and a black-purpleish colorization. Prior to the game's events, it was sealed away by Impa in the bottom of the Well of Three Features in Kakariko Village. However, when Ganondorf assumes power, Bongo Bongo eventually breaks the seal placed on it and sets Kakariko Village on fire. Link arrives just as Bongo Bongo escapes, but fails to stop it from traveling to the Shadow Temple.", 
+   "Great King of Evil or the Dark Lord Ganondorf was born a member of the Gerudo; as the only male member to be born in a hundred years, Ganondorf is made either the King of the Gerudo or the Guardian of the Desert, depending on the game. Gifted with powerful magic, Ganondorf often seeks the omnipotent Triforce to grant his wish of conquering the entire world. He frequently wields the Triforce of Power, and stages coups against the Royal Family of Hyrule to take the Hyrulean Throne by force."
+   , "Parasitic Armored Arachnid Queen Gohma is the 'curse' that was placed on the Great Deku Tree by Ganondorf. A spider-like creature, she can hatch Gohma Larvae to help her defeat Link. nterestingly, Queen Gohma's boss title labels her only as 'Gohma' The term 'Queen Gohma' is only used in-game by the Deku Scrub Brothers outside her lair."
+   ,"Scorching Hot Cave Dwelling Dragon  Boss of the Fire Temple, the second dungeon in the adult portion of The Legend of Zelda: Ocarina of Time, and the fifth dungeon overall. Volvagia is a monstrous dragon and was a blight upon Hyrule, specifically Death Mountain, for many years prior to the events of the game. He flies through the air in a blaze of fire and dives through pools of molten lava, unharmed despite their intense heat. Volvagia is infamous among the Gorons for devouring their kind alive, but was eventually defeated and slain by the Hero of the Gorons, who wielded the Megaton Hammer."
+   ,"Evil Spirit of Another Dimension  Boss of the Forest Temple, the first dungeon in the adult portion of The Legend of Zelda: Ocarina of Time, and the fourth dungeon overall. Created by Ganondorf to hold Saria captive, he is depicted as being nearly identical to Ganondorf, with the only exception being his skull-like face."
+   ,"Twin Sorceresses  Bosses from The Legend of Zelda: Ocarina of Time. They can be found in the Spirit Temple, the fifth dungeon in the adult portion of the game and the ninth dungeon overall. Twinrova is fought both as two separate entities, and one singular unit. Koume controls fire, while Kotake controls ice."
+   ,"Aquatic Cell Nucleus  Boss of the Water Temple, the sixth dungeon in The Legend of Zelda: Ocarina of Time. It is a large, amoebic creature consisting of a main nucleus surrounded by blue cytoplasm. The nucleus is able to manipulate the water in a pool, allowing it to grab, constrict, or strike Link."
+   ,"Electric Rotating Intestinal Worm Boss of Inside Jabu-Jabu's Belly, the third dungeon in The Legend of Zelda: Ocarina of Time. This parasitic organism is revealed to be the cause of Lord Jabu-Jabu's gastrointestinal distress. It appears to have a symbiotic relationship of some sort with Bari. It also bears some resemblance to Kalle Demos."]
+
+
+
 /*  var young_hero = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma"];
   var health = [100, 90, 120, 75];
   var attack_power = [];
@@ -58,6 +70,7 @@ $(document).ready(function() {
   var attack_power = [];
   var counter_power = [];
   var hero_image = [];
+  var hero_bio = [];
 
   var game_name = [choices_name[Math.floor(Math.random()*9)]];
 
@@ -90,12 +103,14 @@ $(document).ready(function() {
       attack_power.push([choices_ap[random_num]]);
       counter_power.push([choices_cp[random_num]]);
       hero_image.push([hero_img[random_num]]);
+      hero_bio.push([choices_data[random_num]]);
 
       choices_name.splice(random_num,1);
       choices_hp.splice(random_num,1);
       choices_ap.splice(random_num,1);
       choices_cp.splice(random_num,1);
       hero_img.splice(random_num,1);
+      choices_data.splice(random_num,1);
 
       console.log(young_hero);
 
@@ -140,7 +155,8 @@ $(document).ready(function() {
               "data-image": hero_image[i],
               "data-attack": attack_power[i],
               "data-counter": counter_power[i],
-              "data-index": i
+              "data-index": i,
+              "data-bio": hero_bio[i]
           });
 
           hero_btns.text(young_hero[i]);
@@ -177,7 +193,8 @@ $(document).ready(function() {
                     "data-image": hero_image[i],
                     "data-attack": attack_power[i],
                     "data-counter": counter_power[i],
-                    "data-index": i
+                    "data-index": i,
+                    "data-bio": hero_bio[i]
                 });
 
                 enemies.text(young_hero[i]);
@@ -223,7 +240,8 @@ $(document).ready(function() {
                     "data-image": hero_image[i],
                     "data-attack": attack_power[i],
                     "data-counter": counter_power[i],
-                    "data-index": i
+                    "data-index": i,
+                    "data-bio": hero_bio[i]
                 });
 
                 defender.text(young_hero[i]);
@@ -337,6 +355,7 @@ $(document).ready(function() {
      } 
 });
 
+
   // PIV: None
   // AV: Complete reset
   // Purpose: To allow the user to choose to start over
@@ -350,5 +369,22 @@ $(document).ready(function() {
     roster();
     ready_board();
     char();
+
+
+$(".hero_button")
+    .mouseover(function(){
+      
+
+        var user_select = $(this);
+        user_select = user_select.data('bio');
+
+        $(".info").html(user_select);
+
+    })
+    .mouseout(function(){
+      $(".info").html("");
+
+    });
+
 
 });

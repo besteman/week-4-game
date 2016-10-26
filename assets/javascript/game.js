@@ -6,30 +6,103 @@ $(document).ready(function() {
 
 // Create grobal variables for the hellos attributes 
 
-  var hero_image = new Array();
-  hero_image[0] = new Image();
-  hero_image[0].src = 'assets/images/link.png';
-  hero_image[0].id = 'image';
+  var hero_img = new Array();
+  hero_img[0] = new Image();
+  hero_img[0].src = 'assets/images/link.png';
+  hero_img[0].id = 'image';
 
-  hero_image[1] = new Image();
-  hero_image[1].src = 'assets/images/bongo.png';
-  hero_image[1].id = 'image';
+  hero_img[1] = new Image();
+  hero_img[1].src = 'assets/images/bongo.png';
+  hero_img[1].id = 'image';
 
-  hero_image[2] = new Image();
-  hero_image[2].src = 'assets/images/gandondorf.jpg';
-  hero_image[2].id = 'image';
+  hero_img[2] = new Image();
+  hero_img[2].src = 'assets/images/gandondorf.jpg';
+  hero_img[2].id = 'image';
 
-  hero_image[3] = new Image();
-  hero_image[3].src = 'assets/images/queen.png';
-  hero_image[3].id = 'image';
+  hero_img[3] = new Image();
+  hero_img[3].src = 'assets/images/queen.png';
+  hero_img[3].id = 'image';
 
-  var young_hero = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma"];
-  var health = [100, 70, 120, 50];
+  hero_img[4] = new Image();
+  hero_img[4].src = 'assets/images/volvagia.png';
+  hero_img[4].id = 'image';
+
+  hero_img[5] = new Image();
+  hero_img[5].src = 'assets/images/phantom.png';
+  hero_img[5].id = 'image';
+
+  hero_img[6] = new Image();
+  hero_img[6].src = 'assets/images/twin.png';
+  hero_img[6].id = 'image';
+
+  hero_img[7] = new Image();
+  hero_img[7].src = 'assets/images/morpha.png';
+  hero_img[7].id = 'image';
+
+  hero_img[8] = new Image();
+  hero_img[8].src = 'assets/images/barinade.png';
+  hero_img[8].id = 'image';
+
+  var choices_name = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma","Volvagia","Phantom Ganon","Twinirova","Morpha","Barinade"]
+  var choices_hp = [100, 90, 120, 75,110,100,130,95,85];
+  var choices_ap = [];
+  var choices_cp = [];
+
+/*  var young_hero = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma"];
+  var health = [100, 90, 120, 75];
+  var attack_power = [];
+  var counter_power = [];*/
+
+  var young_hero = [];
+  var health = [];
   var attack_power = [];
   var counter_power = [];
+  var hero_image = [];
+
+  var game_name = [choices_name[Math.floor(Math.random()*9)]];
+
+  console.log(game_name);
 
   var enemy_select;
   var hero_select;
+  var num_players = 4;
+
+  function generate_full_power(){
+
+    for (var i = 0; i < choices_name.length; i++) {
+
+    var x = Math.floor(Math.random()*20) + 3;
+    var y = Math.floor(Math.random()*10) + 3;
+    choices_ap.push(x);
+    choices_cp.push(y);
+
+    }
+  }
+
+  function roster(){
+
+    for (var i = 0; i < num_players; i++) {
+
+      var random_num = Math.floor(Math.random()*choices_name.length);
+
+      young_hero.push([choices_name[random_num]]);
+      health.push([choices_hp[random_num]]);
+      attack_power.push([choices_ap[random_num]]);
+      counter_power.push([choices_cp[random_num]]);
+      hero_image.push([hero_img[random_num]]);
+
+      choices_name.splice(random_num,1);
+      choices_hp.splice(random_num,1);
+      choices_ap.splice(random_num,1);
+      choices_cp.splice(random_num,1);
+      hero_img.splice(random_num,1);
+
+      console.log(young_hero);
+
+
+    }
+
+  }
 
   // PIV: attack_ power , counter_power
   // AV: Random numbers generated 
@@ -73,6 +146,7 @@ $(document).ready(function() {
           hero_btns.text(young_hero[i]);
           hero_btns.append(hero_image[i]);
           hero_btns.append(health[i]);
+          //$("#buttons").append(hero_btns).fadeIn("slow");
           $("#buttons").append(hero_btns);
 
       }
@@ -142,7 +216,7 @@ $(document).ready(function() {
             if (i == enemy_select) {
 
                 var defender = $("<button>");
-                defender.addClass("hero defender ");
+                defender.addClass("hero defender btn-danger");
                 defender.attr({
                     "data-name": young_hero[i],
                     "data-health": health[i],
@@ -166,16 +240,6 @@ $(document).ready(function() {
         }
       });
   }
-
-
-/*    var count = young_hero.length - 1;
-    console.log(count);
-
-    function winner_winner_chickdinner(){
-      console.log("hey");
-      var winner_name = $(".hero_button").data("name")
-      $("#buttons").append(winner_name);
-    }*/
 
 
   // PIV: Defender and Hero
@@ -282,6 +346,8 @@ $(document).ready(function() {
 
   });
 
+    generate_full_power();
+    roster();
     ready_board();
     char();
 

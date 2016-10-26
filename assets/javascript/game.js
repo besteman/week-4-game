@@ -48,7 +48,7 @@ $(document).ready(function() {
   hero_img[9].id = 'image';
 
   var choices_name = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma","Volvagia","Phantom Ganon","Twinirova","Morpha","Barinade" , "King Dodongo"]
-  var choices_hp = [150, 90, 130, 75,110,100,130,95,85,95];
+  var choices_hp = [150, 110, 130, 75,110,100,130,105,95,85];
   var choices_ap = [];
   var choices_cp = [];
 
@@ -85,6 +85,10 @@ $(document).ready(function() {
   var hero_select;
   var num_players = 4;
 
+  // PIV: attack_ power , counter_power
+  // AV: Random numbers generated 
+  // Purpose: Populate the attack_power and counter_power with four
+  // random number
   function generate_full_power(){
 
     for (var i = 0; i < choices_name.length; i++) {
@@ -97,6 +101,9 @@ $(document).ready(function() {
     }
   }
 
+  //PIV: Takes in the names,hp,cp,ap,image,bio of the character
+  //AV: Populates the arrays of the character attributies 
+  //: Allows the user a 
   function roster(){
 
     for (var i = 0; i < num_players; i++) {
@@ -377,7 +384,9 @@ $(document).ready(function() {
     ready_board();
     char();
 
-
+// PIV: Bios, name
+// AV: Populates the user bios
+// Allows the user to read the character's
 $(".hero_button")
     .mouseover(function(){
       
@@ -386,13 +395,14 @@ $(".hero_button")
         var user_name = $(this);
         user_select = user_select.data('bio');
         user_name = user_name.data('name');
-
-        $(".info").html("<h3>" + user_name + " Bio</h3><hr>" + user_select);
+        $(".info").addClass("panel col-md-6 pull-right panel panel-default");
+        $(".info").html("<h3 class='text-center'>" + user_name + " Bio</h3><hr>" + "<p class = 'text-center'>" + user_select + "</p>");
 
     })
     .mouseout(function(){
-      $(".info").html("");
 
+      $(".info").html("");
+      $(".info").removeClass("panel panel-default");
     });
 
 

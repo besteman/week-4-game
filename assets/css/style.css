@@ -56,7 +56,7 @@ background-size: 100% 100%;
 	}
 
 .def{
-	margin-top: 20px;
+	
 	margin-left: 20px;
 	margin-bottom: 20px;
 
@@ -69,6 +69,13 @@ background-size: 100% 100%;
 #defend {
 	margin-left: 10px;
 }
+
+.info{
+
+	height: 25%;
+
+}
+
 
 
 

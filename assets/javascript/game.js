@@ -43,8 +43,12 @@ $(document).ready(function() {
   hero_img[8].src = 'assets/images/barinade.png';
   hero_img[8].id = 'image';
 
-  var choices_name = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma","Volvagia","Phantom Ganon","Twinirova","Morpha","Barinade"]
-  var choices_hp = [100, 90, 120, 75,110,100,130,95,85];
+  hero_img[9] = new Image();
+  hero_img[9].src = 'assets/images/king.png';
+  hero_img[9].id = 'image';
+
+  var choices_name = ["Link", "Bongo Bongo", "Gandondorf", "Queen Gohma","Volvagia","Phantom Ganon","Twinirova","Morpha","Barinade" , "King Dodongo"]
+  var choices_hp = [150, 90, 130, 75,110,100,130,95,85,95];
   var choices_ap = [];
   var choices_cp = [];
 
@@ -56,7 +60,8 @@ $(document).ready(function() {
    ,"Evil Spirit of Another Dimension  Boss of the Forest Temple, the first dungeon in the adult portion of The Legend of Zelda: Ocarina of Time, and the fourth dungeon overall. Created by Ganondorf to hold Saria captive, he is depicted as being nearly identical to Ganondorf, with the only exception being his skull-like face."
    ,"Twin Sorceresses  Bosses from The Legend of Zelda: Ocarina of Time. They can be found in the Spirit Temple, the fifth dungeon in the adult portion of the game and the ninth dungeon overall. Twinrova is fought both as two separate entities, and one singular unit. Koume controls fire, while Kotake controls ice."
    ,"Aquatic Cell Nucleus  Boss of the Water Temple, the sixth dungeon in The Legend of Zelda: Ocarina of Time. It is a large, amoebic creature consisting of a main nucleus surrounded by blue cytoplasm. The nucleus is able to manipulate the water in a pool, allowing it to grab, constrict, or strike Link."
-   ,"Electric Rotating Intestinal Worm Boss of Inside Jabu-Jabu's Belly, the third dungeon in The Legend of Zelda: Ocarina of Time. This parasitic organism is revealed to be the cause of Lord Jabu-Jabu's gastrointestinal distress. It appears to have a symbiotic relationship of some sort with Bari. It also bears some resemblance to Kalle Demos."]
+   ,"Electric Rotating Intestinal Worm Boss of Inside Jabu-Jabu's Belly, the third dungeon in The Legend of Zelda: Ocarina of Time. This parasitic organism is revealed to be the cause of Lord Jabu-Jabu's gastrointestinal distress. It appears to have a symbiotic relationship of some sort with Bari. It also bears some resemblance to Kalle Demos."
+   ,"Infernal Dinosaur King Dodongo is the leader of the Dodongo sent to the cavern by Ganondorf. This is problematic for the Gorons, as King Dodongo loves to eat them. Interestingly, even though the size of King Dodongo is impressive, he is apparently not the largest one of his kind, as the entrance to his lair is adorned with what appears to be the skull of a Dodongo even bigger than him."]
 
 
 
@@ -177,6 +182,8 @@ $(document).ready(function() {
   function char(){
 
       $(".hero_button").on("click", function() {
+
+        $(".info").remove();
           
         var hero = $(this);
         hero_select = hero.data('index');
@@ -376,9 +383,11 @@ $(".hero_button")
       
 
         var user_select = $(this);
+        var user_name = $(this);
         user_select = user_select.data('bio');
+        user_name = user_name.data('name');
 
-        $(".info").html(user_select);
+        $(".info").html("<h3>" + user_name + " Bio</h3><hr>" + user_select);
 
     })
     .mouseout(function(){
